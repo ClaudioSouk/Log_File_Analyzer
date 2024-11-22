@@ -1,0 +1,4 @@
+IP Address,Timestamp,Method,Endpoint,Status Code
+192.168.1.1,20/Nov/2024:12:35:01 +0000,POST,/login,401
+203.0.113.5,20/Nov/2024:12:35:05 +0000,GET,/admin,403
+192.168.1.1,20/Nov/2024:12:35:15 +0000,POST,/login,401
