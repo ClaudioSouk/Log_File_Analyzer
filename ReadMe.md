@@ -19,6 +19,34 @@ This project aims to provide a simple yet effective way to identify potential se
 - **Regex (`re`)**: For extracting data from log entries.
 - **CSV**: To store results for further inspection.
 
+  ## How the Code Works
+1. **Log Parsing**: 
+   - The script reads the log file line by line.
+   - Each line is matched to a predefined pattern using Python’s `re` (regular expression) library to extract key details like:
+     - IP Address
+     - Request Timestamp
+     - HTTP Method (`GET`, `POST`, etc.)
+     - Requested Endpoint (e.g., `/login`, `/admin`)
+     - Status Code (`200`, `401`, etc.)
+
+2. **Suspicious Activity Detection**:
+   - The script checks if:
+     - The requested endpoint matches sensitive paths like `/admin` or `/login`.
+     - The response status code is `401` (Unauthorized) or `403` (Forbidden).
+   - If either condition is met, the request is flagged as suspicious.
+
+3. **Tracking High-Frequency IPs**:
+   - Each IP address is tracked for the number of requests made.
+   - If an IP makes more than 3 requests, it’s flagged as high-frequency and printed in the terminal.
+
+4. **Saving Results**:
+   - Suspicious activity details are stored in a CSV file (`suspicious_activity.csv`) with the following fields:
+     - IP Address
+     - Timestamp
+     - HTTP Method
+     - Endpoint
+     - Status Code
+
 ## How to Use
 1. Clone the repository:
     ```bash
